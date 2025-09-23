@@ -5,11 +5,9 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn -q -DskipTests package
 
-# ---- Run stage ----
-FROM eclipse-temurin:21-jre
+# ---- Run stage (use JDK so jdk.zipfs is available) ----
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
-# copy the fat jar produced by the assembly plugin
 COPY --from=build /app/target/*-jar-with-dependencies.jar app.jar
-# Render sets PORT; your App reads it via getPort()
 EXPOSE 8080
 CMD ["java","-jar","/app/app.jar"]
