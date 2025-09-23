@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test>
+
+    <webpage name="www.steamcommunity.com">
+        <link name="www.ubisoft.com" />
+        <link name="www.netflix.com" />
+        <rank value="1.0" />
+        <content value="steam pc gaming mods achievements survival sandbox fps rpg" />
+    </webpage>
+
+    <webpage name="www.ubisoft.com">
+        <link name="www.steamcommunity.com" />
+        <link name="www.marvel.com" />
+        <rank value="1.0" />
+        <content value="ubisoft assassinscreed farcry division siege watchdogs" />
+    </webpage>
+
+    <webpage name="www.netflix.com">
+        <link name="www.spotify.com" />
+        <link name="www.crunchyroll.com" />
+        <link name="www.espn.com" />
+        <rank value="1.0" />
+        <content value="netflix movies shows binge thriller sitcom drama horror" />
+    </webpage>
+
+    <webpage name="www.spotify.com">
+        <link name="www.netflix.com" />
+        <link name="www.youtube.com" />
+        <rank value="1.0" />
+        <content value="spotify music playlist pop hiphop lofi metal edm chill study" />
+    </webpage>
+
+    <webpage name="www.crunchyroll.com">
+        <link name="www.netflix.com" />
+        <link name="www.spotify.com" />
+        <rank value="1.0" />
+        <content value="anime shonen isekai mecha romance sliceoflife op ed" />
+    </webpage>
+
+    <webpage name="www.marvel.com">
+        <link name="www.netflix.com" />
+        <link name="www.dc.com" />
+        <rank value="1.0" />
+        <content value="marvel dc superheroes multiverse ironman spiderman avengers" />
+    </webpage>
+
+    <webpage name="www.dc.com">
+        <link name="www.marvel.com" />
+        <link name="www.steamcommunity.com" />
+        <rank value="1.0" />
+        <content value="dc batman superman justiceleague joker gotham comics" />
+    </webpage>
+
+    <webpage name="www.youtube.com">
+        <link name="www.spotify.com" />
+        <link name="www.netflix.com" />
+        <rank value="1.0" />
+        <content value="youtube videos streaming memes tutorials vlogs shorts" />
+    </webpage>
+
+    <webpage name="www.imdb.com">
+        <link name="www.netflix.com" />
+        <link name="www.marvel.com" />
+        <rank value="1.0" />
+        <content value="imdb ratings reviews cinema movies actors directors hollywood" />
+    </webpage>
+
+    <webpage name="www.epicgames.com">
+        <link name="www.ubisoft.com" />
+        <link name="www.steamcommunity.com" />
+        <rank value="1.0" />
+        <content value="epicgames fortnite unrealengine freegames battle royale" />
+    </webpage>
+
+    <webpage name="www.espn.com">
+        <link name="www.netflix.com" />
+        <link name="www.youtube.com" />
+        <rank value="1.0" />
+        <content value="espn sports basketball football soccer cricket highlights scores news" />
+    </webpage>
+
+</test>

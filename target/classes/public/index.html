@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Engine Demo</title>
+    <style>
+        body {
+          background: linear-gradient(135deg, #ece9e6, #ffffff); /* soft gradient grey */
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-height: 100vh;
+        }
+
+        h1 {
+          letter-spacing: 5px;
+          font-size: 70px;
+          font-weight: bold;
+          margin-top: 80px;
+          color: rgb(169, 169, 169);
+          text-align: center;
+          text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        }
+
+        form {
+          margin-top: 30px;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        input[type="text"] {
+          width: 400px;
+          padding: 12px 15px;
+          border: 1px solid #ccc;
+          border-radius: 25px;
+          font-size: 1rem;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+          outline: none;
+          transition: 0.2s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+          border-color: #4a90e2;
+          box-shadow: 0 4px 10px rgba(74,144,226,0.3);
+        }
+
+        button {
+          padding: 12px 25px;
+          border: solid;
+          border-color: rgb(169, 169, 169) ;
+          border-radius: 25px;
+          background-color: #4a90e2;
+          color: white;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out;
+        }
+
+        button:hover {
+          background-color: #357ab8;
+        }
+
+        #resultsBox {
+          margin-top: 40px;
+          width: 60%;
+          max-width: 700px;
+          background: #fff;
+          padding: 20px 30px;
+          border-radius: 10px;
+          box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        #results li {
+          margin: 12px 0;
+          font-size: 1.1rem;
+          list-style: none;
+        }
+
+        #results a {
+          text-decoration: none;
+          color: #4a90e2;
+          font-weight: 500;
+          transition: color 0.2s ease-in-out;
+        }
+
+        #results a:hover {
+          color: #2c5f8a;
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Search Engine</h1>
+<form onsubmit="doSearch(event)">
+    <input type="text" id="q" placeholder="Type a keyword...">
+    <button type="submit">Search</button>
+</form>
+
+<div id="resultsBox">
+    <ul id="results"></ul>
+</div>
+
+<script>
+    async function doSearch(e) {
+      e.preventDefault();
+      const q = document.getElementById('q').value.trim();
+      const res = await fetch('/search?q=' + encodeURIComponent(q));
+      const data = await res.json();
+
+      document.getElementById('results').innerHTML =
+        data.length
+          ? data.map(x => `<li><a href="http://${x}" target="_blank">${x}</a></li>`).join('')
+          : `<li>No results found</li>`;
+    }
+</script>
+</body>
+</html>
