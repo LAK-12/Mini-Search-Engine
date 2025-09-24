@@ -5,7 +5,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn -q -DskipTests package
 
-# ---- Run stage (use JDK so jdk.zipfs is available) ----
+# ---- Run stage (use JDK) ----
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*-jar-with-dependencies.jar app.jar
