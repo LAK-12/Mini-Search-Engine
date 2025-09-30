@@ -8,19 +8,19 @@ import java.nio.file.StandardCopyOption;
 public class App {
     public static void main(String[] args) throws Exception {
         port(getPort());
-        staticFiles.location("/public"); // serves /public/index.html
+        staticFiles.location("/public");
 
-        // simple health check (optional but handy on Render)
+        
         get("/health", (req, res) -> "OK");
 
-        // Load test.xml from classpath as a stream and copy to a temp file
+ 
         try (var is = Objects.requireNonNull(App.class.getResourceAsStream("/test.xml"))) {
             var tmp = Files.createTempFile("dataset", ".xml");
             Files.copy(is, tmp, StandardCopyOption.REPLACE_EXISTING);
 
             SearchEngine engine = new SearchEngine(tmp.toString());
 
-            // crawl the real roots in your dataset
+           
             for (String start : List.of(
                     "www.steamcommunity.com","www.ubisoft.com","www.netflix.com",
                     "www.spotify.com","www.crunchyroll.com","www.marvel.com",
@@ -31,7 +31,7 @@ public class App {
             }
             engine.assignPageRanks(1e-3);
 
-            // search endpoint
+            
             get("/search", (req, res) -> {
                 String q = Optional.ofNullable(req.queryParams("q")).orElse("").trim().toLowerCase();
                 List<String> results = q.isEmpty() ? List.of() : engine.getResults(q);
