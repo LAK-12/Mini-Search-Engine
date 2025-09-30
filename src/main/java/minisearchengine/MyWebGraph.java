@@ -11,12 +11,8 @@ public class MyWebGraph {
 	}
 	
 	
-	/*
-	 * adds a vertex given a url
-	 * returns true if the graph has changed as a result of this operation
-	 * false otherwise. Note that the method should add the vertex only if 
-	 * a vertex associated to the given url is not already part of the graph. 
-	 */
+	// adds a vertex given a url
+	 
 	public boolean addVertex(String s) {
 		if(!vertexList.containsKey(s)) {
 			WebVertex vertex = new WebVertex(s);
@@ -27,12 +23,8 @@ public class MyWebGraph {
 	}
 	
 
-	/*
-	 * add an edge between two vertices.
-	 * returns true if the graph has changed as a result of this operation
-	 * false otherwise. An edge between two vertices can be added only if 
-	 * both vertices belong to the graph. 
-	 */
+	//add an edge between two vertices.
+	 
 	public boolean addEdge(String s, String t) {
 		boolean isAdded = false;
 		if(vertexList.containsKey(s) && vertexList.containsKey(t)) {
@@ -74,7 +66,6 @@ public class MyWebGraph {
     
     // Returns the number of links in the page with the specified url
     public int getOutDegree(String url) {
-    	// NullPointerException raised if there's no vertex with specified url
         return vertexList.get(url).links.size();
     }        
     
